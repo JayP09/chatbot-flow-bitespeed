@@ -1,3 +1,4 @@
+// Custom Hook for validating the current chatbot flow
 import { Edge, Node, getConnectedEdges, useReactFlow } from "@xyflow/react";
 
 const findEdges = (node: Node, connectedEdges: Edge[]) => {

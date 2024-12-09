@@ -11,6 +11,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import NodeDataPanel from "./NodeDataPanel";
 import { useSelection } from "../../context/SelectionContext";
 
+// Sidebar component for managing the currently selected node and enabling drag-and-drop functionality
 const Sidebar = () => {
   const handleDragStart = (e: React.DragEvent, type: string) => {
     e.dataTransfer.setData(DRAG_DATA_TRANSFER, type);

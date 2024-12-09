@@ -8,6 +8,7 @@ type TextMessageNodePropertiesProps = Readonly<{
   updateData: (data: Partial<TextMessageData>) => void;
 }>;
 
+// Component for updating and managing TextMessage data
 const TextMessageNodePanel = ({
   data,
   updateData,

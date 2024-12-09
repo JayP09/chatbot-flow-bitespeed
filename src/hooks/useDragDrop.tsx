@@ -1,3 +1,4 @@
+// Hook for managing Drag and Drop
 import React, { Dispatch, SetStateAction, useCallback } from "react";
 import { CustomNodes, DRAG_DATA_TRANSFER } from "../constants/constants";
 import { useReactFlow } from "@xyflow/react";
@@ -20,6 +21,8 @@ const useDragDrop = (setNodes: Dispatch<SetStateAction<AppNode[]>>) => {
       e.preventDefault();
 
       const type = e.dataTransfer.getData(DRAG_DATA_TRANSFER);
+
+      // Check is drop type is not undefined
       if (typeof type === "undefined" || !type) return;
 
       const pos = reactFlowInstance.screenToFlowPosition({

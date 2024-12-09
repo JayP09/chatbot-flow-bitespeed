@@ -8,4 +8,5 @@ export const initialEdges = [
 
 export const edgeTypes = {
   [CustomEdges.BUTTON_EDGE]: ButtonEdge
+  // Add any of your custom Edges here!
 } satisfies EdgeTypes;

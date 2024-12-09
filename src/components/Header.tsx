@@ -3,6 +3,7 @@ import useFlowValidator from "../hooks/useFlowValidator";
 import { toast } from "react-toastify";
 
 const Header = () => {
+  // ValidateFlow for validating the current flow of chatbot
   const [validateFlow] = useFlowValidator((isValid) => {
     if (isValid) toast.success("Flow is valid");
     else toast.error("Cannot Save Flow it is invalid");

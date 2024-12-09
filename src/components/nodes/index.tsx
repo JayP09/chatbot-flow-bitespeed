@@ -16,7 +16,7 @@ export type AppNodeData<T extends CustomNodeType> =
     ? TextMessageData
     : Record<string, any>;
 
-export type AppNode = BuiltInNode | TextMessageNodeData;
+export type AppNode = BuiltInNode | TextMessageNodeData; // Add custom Node type in OR
 
 export const initialNodes: AppNode[] = [
   {

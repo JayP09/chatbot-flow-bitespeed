@@ -24,9 +24,12 @@ import useDragDrop from "../hooks/useDragDrop";
 import { CustomEdges } from "../constants/constants";
 import { useSelection } from "../context/SelectionContext";
 
+// Main Component for handling React Flow changes
 const MainSection = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes); // managing the state of nodes
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges); // managing the state of edges
+
+  // callback function for handing Two node connections
   const onConnect: OnConnect = useCallback(
     (connection) => {
       const newConnection = { ...connection, id: nanoid(), type: CustomEdges.BUTTON_EDGE };
@@ -71,12 +74,14 @@ const MainSection = () => {
     [getNodes, getEdges],
   );
 
+  // onDrop handler
   const [onDragOver,onDrop]  = useDragDrop(setNodes)
 
   const onChange = useCallback(({ nodes }: OnSelectionChangeParams) => {
     setSelectedNode(nodes[0]);
   }, [setSelectedNode]);
 
+  // Hook for registering an onSelectionChange handler.
   useOnSelectionChange({
     onChange,
   } as unknown as UseOnSelectionChangeOptions);

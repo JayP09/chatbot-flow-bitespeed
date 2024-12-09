@@ -25,6 +25,7 @@ const NodeDataPanel = ({ id, type, data }: NodeDataPanel) => {
 
   const { setNodes } = useReactFlow();
 
+  // Function to updateNode Data
   const updateData = useCallback(
     (newData: Partial<any>) => {
       setNodes((nds) =>

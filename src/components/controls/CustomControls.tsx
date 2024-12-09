@@ -10,6 +10,7 @@ import ControlButton from "./ControlButton";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
+// Custom Control Component for managing the chatbot flow view
 const CustomControls = React.forwardRef<
   HTMLDivElement,
   Omit<PanelProps, "children">

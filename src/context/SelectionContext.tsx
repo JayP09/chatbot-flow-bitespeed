@@ -1,3 +1,4 @@
+// Context object for tracking the currently selected node
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { Node } from '@xyflow/react';
 
@@ -18,6 +19,7 @@ export const SelectionProvider: React.FC<{ children: ReactNode }> = ({ children 
   );
 };
 
+// Function to access the Selection Context
 export const useSelection = (): SelectionContextType => {
   const context = useContext(SelectionContext);
   if (!context) {

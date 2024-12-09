@@ -10,6 +10,7 @@ import { twMerge } from "tailwind-merge";
 
 type TextMessageNodeProps = NodeProps<TextMessageNodeData>;
 
+// Custom Text message node
 const TextMessageNodeRaw = ({
   isConnectable,
   selected,
@@ -47,7 +48,7 @@ const TextMessageNodeRaw = ({
       <Handle
         type="source"
         position={Position.Right}
-        isConnectable={connections.length === 0}
+        isConnectable={connections.length === 0} // Check for only one connection from Source Handle
       />
     </>
   );
