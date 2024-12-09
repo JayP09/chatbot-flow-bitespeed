@@ -1,5 +1,4 @@
-import { ComponentType, useCallback } from "react";
-import { produce } from "immer";
+import { ComponentType } from "react";
 import { CustomNodes, CustomNodeType } from "../../constants/constants";
 import { useReactFlow } from "@xyflow/react";
 import TextMessageNodePanel from "./TextMessageNodePanel";
@@ -25,18 +24,20 @@ const NodeDataPanel = ({ id, type, data }: NodeDataPanel) => {
 
   const { setNodes } = useReactFlow();
 
-  // Function to updateNode Data
-  const updateData = useCallback(
-    (newData: Partial<any>) => {
-      setNodes((nds) =>
-        produce(nds, (draft) => {
-          const node = draft.find((n) => n.id === id);
-          if (node) node.data = { ...node.data, ...newData };
-        })
-      );
-    },
-    [id, setNodes]
-  );
+  // Function to update node data
+  const updateData = (newData: Partial<any>) => {
+    console.log("newData", newData);
+    setNodes((nds) =>
+      nds.map((nodeData) => {
+        if (nodeData.id === id) {
+          nodeData.data = { ...nodeData.data, ...newData };
+          return {...nodeData};
+        } else {
+          return nodeData;
+        }
+      })
+    );
+  };
 
   return PanelComponent && data ? (
     <PanelComponent id={id} type={type} data={data} updateData={updateData} />
